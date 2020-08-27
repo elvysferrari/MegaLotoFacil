@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "lotofacilapp-8fc6e": {
+      "hosting": {
+        "MegaLotoFacil": [
+          "lotofacilapp-8fc6e"
+        ]
+      }
+    }
+  }
+}
