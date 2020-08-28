@@ -1,0 +1,17 @@
+<div *ngIf="!showResult">
+    <p class="label">
+        {{ titulo }}
+    </p>
+    <div class="balls">
+        <div [ngStyle]="{'background': b.selected ? '#7f3992' : '#adc0c4'}" *ngFor="let b of balls" (click)="selected(b)" class="circle">
+           {{ b.nro }}
+        </div>  
+        
+    </div>
+    <div style="padding-top: 25px;text-align: center;">
+        <button style="height: 50px; width: 180px;" (click)="prosseguir()" [disabled]="!showProsseguir" mat-raised-button color="primary">Prosseguir</button>
+    </div>
+</div>
+<div *ngIf="showResult">
+    <app-layout-resultado [jogo]="padraoResult" ></app-layout-resultado>
+</div>

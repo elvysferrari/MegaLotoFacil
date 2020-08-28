@@ -23,6 +23,18 @@ const routes: Routes = [
   { 
     path: 'ajuda', 
     loadChildren: () => import('./pages/ajuda/ajuda.component').then(m => m.AjudaModule)
+  },
+  { 
+    path: 'login', 
+    loadChildren: () => import('./components/access/login/login.component').then(m => m.LoginModule)
+  },
+  { 
+    path: 'registrar', 
+    loadChildren: () => import('./components/access/register/register.component').then(m => m.RegisterModule)
+  },
+  { 
+    path: 'recuperar', 
+    loadChildren: () => import('./components/access/forgot-password/forgot-password.component').then(m => m.ForgotPasswordModule)
   }
 ];
 

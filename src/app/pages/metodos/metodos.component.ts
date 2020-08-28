@@ -1,3 +1,5 @@
+import { LayoutNumerosModule } from './../../components/padrao/layout-numeros/layout-numeros.component';
+import { GerarPadroesService } from './../../services/gerador/gerar-padroes.service';
 import { AuthGuard } from './../../guards/auth.guard';
 import { Component, OnInit, NgModule, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,11 +14,62 @@ import {MatButtonModule} from '@angular/material/button';
   encapsulation: ViewEncapsulation.None
 })
 export class MetodosComponent implements OnInit {
+  private padrao8Result;
+  private padrao7Result;
+  private padrao6Result;
+  private padrao5Result;
+  private padrao4Result;
+  private padrao3Result;
+  private padrao2Result;
+  private padrao1Result;
 
-  constructor() { }
+  padraoSelecionado = 0;
+
+  constructor(private gerarPadroesService: GerarPadroesService) { }
 
   ngOnInit(): void {
   }
+
+  padrao8(){
+    this.padraoSelecionado = 8;
+  }
+
+  padrao7(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao7([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao6(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao6([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao5(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao5([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao4(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao4([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao3(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao3([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao2(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao2([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+  padrao1(){
+    this.padrao8Result = this.gerarPadroesService.gerarPadrao2([1,2,3,4,8,9,10]);
+    console.log(this.padrao8Result);
+  }
+
+
 
 }
 const routes: Routes = [
@@ -35,7 +88,8 @@ export class MetodosRoutingModule { }
     CommonModule,     
     FormsModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    LayoutNumerosModule
   ],
   exports: [
     MetodosComponent

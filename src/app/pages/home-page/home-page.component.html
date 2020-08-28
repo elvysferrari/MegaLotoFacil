@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isLogged" class="container">
     <mat-card *ngFor="let noticie of notices" class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -11,4 +11,7 @@
           </p>
         </mat-card-content>        
       </mat-card>          
+</div>
+<div *ngIf="!isLogged" class="container">
+  <p>Compre Agora</p>
 </div>

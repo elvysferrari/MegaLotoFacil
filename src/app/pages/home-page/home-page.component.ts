@@ -1,3 +1,4 @@
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { HomePageService } from './../../services/home-page.service';
 import { NoticeModel } from './../../models/notice-model';
 import { Component, OnInit, NgModule, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
@@ -15,20 +16,23 @@ import {MatCardModule} from '@angular/material/card';
 })
 export class HomePageComponent implements OnInit {
   notices: NoticeModel[];
-  
-  constructor(private homePageService: HomePageService){
+  isLogged: boolean;
+  constructor(private homePageService: HomePageService, private authService: AuthService){
 
   }
 
   ngOnInit(): void {
-    this.homePageService.getNotices().subscribe(async (data) => {
-      this.notices = data.map(e => {
-        return {
-          id: e.payload.doc.id,
-          ...e.payload.doc.data() as NoticeModel
-        };
-      }) 
-    })
+    this.isLogged = this.authService.isLoggedIn;
+    if(this.isLogged){
+      this.homePageService.getNotices().subscribe(async (data) => {
+        this.notices = data.map(e => {
+          return {
+            id: e.payload.doc.id,
+            ...e.payload.doc.data() as NoticeModel
+          };
+        }) 
+      })
+    }
   }
 
   newNotice(){
@@ -42,7 +46,7 @@ export class HomePageComponent implements OnInit {
 
 }
 const routes: Routes = [
-  { path: '', component: HomePageComponent, canActivate: [AuthGuard] }
+  { path: '', component: HomePageComponent }
 ];
 
 @NgModule({

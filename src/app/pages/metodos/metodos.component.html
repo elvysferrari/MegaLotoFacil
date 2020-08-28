@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="padraoSelecionado == 0" class="container">
     <mat-accordion>
         <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
@@ -8,7 +8,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">SETE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">NOVE</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 16 números em nove cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button (click)="padrao8()" mat-raised-button color="primary">Escolher</button>
+            </div>            
         </mat-expansion-panel>
         
         <mat-expansion-panel hideToggle>
@@ -19,7 +21,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">OITO</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">TRINTA E SEIS</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 17 números em trinta e seis cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>
 
         <mat-expansion-panel hideToggle>
@@ -30,7 +34,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">NOVE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">OITENTA E QUATRO</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 18 números em oitenta e quatro cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>        
 
         <mat-expansion-panel hideToggle>
@@ -41,7 +47,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">DEZ</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">126</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 19 números em 126 cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>
 
         <mat-expansion-panel hideToggle>
@@ -52,7 +60,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">ONZE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">126</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 20 números em 126 cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>
         
         <mat-expansion-panel hideToggle>
@@ -63,7 +73,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">DOZE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">84</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 21 números em 84 cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>
         
         <mat-expansion-panel hideToggle>
@@ -74,7 +86,9 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">TREZE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">36</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 22 números em 36 cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
         </mat-expansion-panel>
         
         <mat-expansion-panel hideToggle>
@@ -85,9 +99,15 @@
             </mat-expansion-panel-header>
             <p>Escolha <span style="font-weight: 600; color: #673ab7">QUATORZE</span> números e o sistema vai gerar <span style="font-weight: 600; color: #673ab7">9</span> jogos para você apostar.</p>
             <p>Dessa forma teremos 23 números em 9 cartões da Lotofácil.</p>
-            <button mat-raised-button color="primary">Escolher</button>
+            <div style="text-align: center;"> 
+                <button mat-raised-button color="primary">Escolher</button>
+            </div>
+            
         </mat-expansion-panel>                        
     </mat-accordion>
 
     <p class="boa-sorte">Boa sorte!</p>
 </div>
+<div *ngIf="padraoSelecionado != 0">
+    <app-layout-numeros [nroPadrao]="padraoSelecionado"></app-layout-numeros>
+</div> 
