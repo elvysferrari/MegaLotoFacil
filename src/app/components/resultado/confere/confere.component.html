@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="label-data">
+        <p>Conferindo resultados do concurso: {{ nroConcurso }} </p>
+        <span>Data: 01/08/2020</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div *ngFor="let numero of arrayNr; let i = index" class="balls">
+            <div class="circle">
+                <span>{{ numero }}</span>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 15px; padding-top: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #666;
+    font-family: sans-serif;" *ngIf="resultado != undefined">
+        <div [ngStyle]="{'color': result11.quantidade_ganhadores == 0 ? '#666' : '#767fb' }" class="acerto">
+            <div>
+                {{ result11.nome }}
+            </div>
+            <div class="total-acerto">
+                {{ result11.quantidade_ganhadores }}
+            </div>
+            <div class="total-valor">
+                {{ result11.quantidade_ganhadores * result11.valor_total | currency:'BRL':true:'.2-2' }}
+            </div>
+        </div>
+
+        <div class="acerto">
+            <div>
+                {{ result12.nome }}
+            </div>
+            <div class="total-acerto">
+                {{ result12.quantidade_ganhadores }}
+            </div>
+            <div class="total-valor">
+                {{ result12.quantidade_ganhadores * result12.valor_total | currency:'BRL':true:'.2-2' }}
+            </div>
+        </div>
+
+        <div class="acerto">
+            <div>
+                {{ result13.nome }}
+            </div>
+            <div class="total-acerto">
+                {{ result13.quantidade_ganhadores }}
+            </div>
+            <div class="total-valor">
+                {{ result13.quantidade_ganhadores * result13.valor_total | currency:'BRL':true:'.2-2' }}
+            </div>
+        </div>
+
+        <div class="acerto">
+            <div>
+                {{ result14.nome }}
+            </div>
+            <div class="total-acerto">
+                {{ result14.quantidade_ganhadores }}
+            </div>
+            <div class="total-valor">
+                {{ result14.quantidade_ganhadores * result14.valor_total | currency:'BRL':true:'.2-2' }}
+            </div>
+        </div>
+
+        <div [ngStyle]="{color: result15.quantidade_ganhadores == 0 ? '#666' : '#767fb'}" class="acerto">
+            <div>
+                {{ result15.nome }}
+            </div>
+            <div class="total-acerto">
+                {{ result15.quantidade_ganhadores }}
+            </div>
+            <div class="total-valor">
+                {{ result15.quantidade_ganhadores * result15.valor_total | currency:'BRL':true:'.2-2' }}
+            </div>
+        </div>
+
+    </div>
+
+</div>

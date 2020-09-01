@@ -3,15 +3,39 @@
         {{ titulo }}
     </p>
     <div class="balls">
-        <div [ngStyle]="{'background': b.selected ? '#7f3992' : '#adc0c4'}" *ngFor="let b of balls" (click)="selected(b)" class="circle">
-           {{ b.nro }}
-        </div>  
-        
+        <div [ngStyle]="{'background': b.selected ? '#7f3992' : '#adc0c4'}" *ngFor="let b of balls"
+            (click)="selected(b)" class="circle">
+            {{ b.nro }}
+        </div>
+
     </div>
     <div style="padding-top: 25px;text-align: center;">
-        <button style="height: 50px; width: 180px;" (click)="prosseguir()" [disabled]="!showProsseguir" mat-raised-button color="primary">Prosseguir</button>
+        <button style="height: 50px; width: 180px;" (click)="prosseguir()" [disabled]="!showProsseguir"
+            mat-raised-button color="primary">Prosseguir</button>
     </div>
 </div>
+<div *ngIf="showResultadoConcurso">
+    <app-confere [nrosEscolhidos]="padraoResult" [nroConcurso]="nroSelecionado"></app-confere>
+</div>
 <div *ngIf="showResult">
-    <app-layout-resultado [jogo]="padraoResult" ></app-layout-resultado>
+    <div>
+        <div style="padding-top: 25px;text-align: center;">
+            <button style="height: 50px; width: 250px; background-color: #6ebb6e; color: white;" (click)="conferir()" mat-raised-button>Fazer
+                conferência dos resultados</button>
+        </div>
+    </div>
+    <div style="padding-top: 25px;
+        text-align: center;
+        width: 80%;
+        padding-left: 10%;" *ngIf="showConfere">
+        <mat-form-field appearance="fill">
+            <mat-label>Escolha o concurso para conferir</mat-label>
+            <mat-select>
+                <mat-option (click)="concursoSelecionado(c.value)" *ngFor="let c of nroConcursos" [value]="c.value">
+                    {{ c.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>    
+    <app-layout-resultado [jogo]="padraoResult"></app-layout-resultado>
 </div>

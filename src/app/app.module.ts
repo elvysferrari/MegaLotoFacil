@@ -1,7 +1,7 @@
+import { ResultadoService } from './services/resultado/resultado.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { GerarPadroesService } from './services/gerador/gerar-padroes.service';
 import { AuthService } from './services/auth/auth.service';
-import { FavoritoPageModule } from './pages/favorito/favorito.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,10 +14,12 @@ import { HomePageModule } from './pages/home-page/home-page.component';
 import { environment } from 'src/environments/environment';
 import { AuthGuard } from './guards/auth.guard';
 import { ApostaService } from './services/aposta/aposta.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -26,13 +28,15 @@ import { ApostaService } from './services/aposta/aposta.service';
     AngularFirestoreModule,
     HomePageModule,
     MatTabsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     AuthGuard,
     AuthService,
     GerarPadroesService,
-    ApostaService
+    ApostaService,
+    ResultadoService
   ],
   bootstrap: [AppComponent]
 })

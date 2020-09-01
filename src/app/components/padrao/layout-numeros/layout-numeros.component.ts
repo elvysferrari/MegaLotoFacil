@@ -1,3 +1,4 @@
+import { ConfereModule } from './../../resultado/confere/confere.component';
 import { JogoModel } from './../../../models/jogo-model';
 import { LayoutResultadoModule } from './../layout-resultado/layout-resultado.component';
 import { Ball } from './../../../models/ball-model';
@@ -8,7 +9,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { GerarPadroesService } from 'src/app/services/gerador/gerar-padroes.service';
-
+import {MatSelectModule} from '@angular/material/select';
 @Component({
   selector: 'app-layout-numeros',
   templateUrl: './layout-numeros.component.html',
@@ -21,10 +22,12 @@ export class LayoutNumerosComponent implements OnInit {
   balls: Ball[] = [];
   showProsseguir: boolean;
   showResult: boolean;
+  showConfere: boolean;
+  showResultadoConcurso: boolean;
 
   padraoResult: JogoModel;
-
-
+  nroSelecionado: number;
+  nroConcursos: TipoConcurso[];
   constructor(private gerarPadroesService: GerarPadroesService) {   
   }
 
@@ -151,9 +154,28 @@ export class LayoutNumerosComponent implements OnInit {
       this.showResult = true;
     }
   }
+
+  conferir(){   
+    this.showResultadoConcurso = false; 
+    this.nroConcursos = [
+      {value: 2024, viewValue: '2024'},
+      {value: 2023, viewValue: '2023'},
+      {value: 2022, viewValue: '2022'}
+    ];
+    this.showConfere = true;
+  }
+
+  concursoSelecionado(nro: number){
+    console.log(nro);
+    this.showConfere = false;
+    this.nroSelecionado = nro;
+    this.showResultadoConcurso = true;  
+  }
 }
-
-
+export class TipoConcurso{
+  value: number;
+  viewValue: string;
+}
 @NgModule({
   imports: [
     CommonModule,     
@@ -161,7 +183,9 @@ export class LayoutNumerosComponent implements OnInit {
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    LayoutResultadoModule
+    MatSelectModule,
+    LayoutResultadoModule,
+    ConfereModule
   ],
   exports: [
     LayoutNumerosComponent
@@ -174,3 +198,4 @@ export class LayoutNumerosComponent implements OnInit {
   ],
 })
 export class LayoutNumerosModule { }
+
