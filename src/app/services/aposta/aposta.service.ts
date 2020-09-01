@@ -21,4 +21,8 @@ export class ApostaService {
     return this.firestore.collection('apostas', ref => ref.where('user', '==', user.email)).snapshotChanges();
   }
 
+  getIntervaloAposta(){
+    return this.firestore.collection('configuracoes', ref => ref.where('configNro', '==', 1)).valueChanges();
+  }
+
 }

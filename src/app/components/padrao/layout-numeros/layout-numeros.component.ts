@@ -2,7 +2,7 @@ import { ConfereModule } from './../../resultado/confere/confere.component';
 import { JogoModel } from './../../../models/jogo-model';
 import { LayoutResultadoModule } from './../layout-resultado/layout-resultado.component';
 import { Ball } from './../../../models/ball-model';
-import { Component, OnInit, NgModule, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, NgModule, ViewEncapsulation, Input, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import { GerarPadroesService } from 'src/app/services/gerador/gerar-padroes.service';
 import {MatSelectModule} from '@angular/material/select';
+import { ApostaService } from 'src/app/services/aposta/aposta.service';
 @Component({
   selector: 'app-layout-numeros',
   templateUrl: './layout-numeros.component.html',
@@ -28,7 +29,9 @@ export class LayoutNumerosComponent implements OnInit {
   padraoResult: JogoModel;
   nroSelecionado: number;
   nroConcursos: TipoConcurso[];
-  constructor(private gerarPadroesService: GerarPadroesService) {   
+  constructor(private gerarPadroesService: GerarPadroesService, 
+              private apostaService: ApostaService,
+              private ref: ChangeDetectorRef) {   
   }
 
   ngOnInit(): void {
@@ -156,13 +159,26 @@ export class LayoutNumerosComponent implements OnInit {
   }
 
   conferir(){   
-    this.showResultadoConcurso = false; 
-    this.nroConcursos = [
-      {value: 2024, viewValue: '2024'},
-      {value: 2023, viewValue: '2023'},
-      {value: 2022, viewValue: '2022'}
-    ];
-    this.showConfere = true;
+    this.showResultadoConcurso = false;    
+    let apostaInicial = 0;
+    let apostaFinal = 0;
+
+    this.apostaService.getIntervaloAposta().subscribe(async (data: any[]) => {          
+      apostaInicial = data[0].apostaInicial;
+      apostaFinal = data[0].apostaFinal;
+      console.log('apostaInicial', apostaInicial);
+      console.log('apostaFinal', apostaFinal);
+      let rangeNros = [];
+      for (let i = apostaInicial; i <= apostaFinal; i++) {
+        rangeNros.push({value: i, viewValue: i.toString()})
+      }
+
+      this.nroConcursos = rangeNros.sort((a: any, b: any) => {
+        return a.value > b.value ? -1 : 1;
+      });
+      this.ref.detectChanges();
+      this.showConfere = true;
+    });  
   }
 
   concursoSelecionado(nro: number){
