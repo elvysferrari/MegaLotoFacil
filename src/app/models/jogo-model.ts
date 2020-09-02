@@ -5,5 +5,6 @@ export class JogoModel {
     numeros: NumeroModel[]
     dataJogo: Date;
     conferido: boolean;
+    nrConferido: number;
     totalValorAcertado: number;
 }

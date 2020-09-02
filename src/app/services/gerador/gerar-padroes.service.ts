@@ -20,16 +20,13 @@ export class GerarPadroesService {
     jogo.numeros = [];
 
     let jogo1 = new NumeroModel();
-    jogo1.nros = [1,2,3,4,5,6,8,9,11,14,17,18,21,23,24];
-    
-    /*
+    jogo1.nros = [5, 6, 7, 12, 13, 14, 20, 21];    
     jogo1.nros = jogo1.nros.concat(...nrosEscolhidos).sort((a: any, b: any) => {
       return a < b ? -1 : 1;
-    });*/
-
+    });
 
     let jogo2 = new NumeroModel();
-    jogo2.nros = [1,2,3,4,5,6,8,9,11,14,17,18,21,23,24];
+    jogo2.nros = [5, 6, 7, 12, 13, 14, 20, 21];
     jogo2.nros = jogo2.nros.concat(...nrosEscolhidos).sort((a: any, b: any) => {
       return a < b ? -1 : 1;
     });  

@@ -1,5 +1,4 @@
 import { JogoModel } from './../../../models/jogo-model';
-import { Ball } from './../../../models/ball-model';
 import { Component, OnInit, NgModule, ViewEncapsulation, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';

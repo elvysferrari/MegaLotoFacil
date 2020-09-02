@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { GerarPadroesService } from 'src/app/services/gerador/gerar-padroes.service';
 import {MatSelectModule} from '@angular/material/select';
 import { ApostaService } from 'src/app/services/aposta/aposta.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-layout-numeros',
   templateUrl: './layout-numeros.component.html',
@@ -31,7 +32,8 @@ export class LayoutNumerosComponent implements OnInit {
   nroConcursos: TipoConcurso[];
   constructor(private gerarPadroesService: GerarPadroesService, 
               private apostaService: ApostaService,
-              private ref: ChangeDetectorRef) {   
+              private ref: ChangeDetectorRef,
+              private router: Router) {   
   }
 
   ngOnInit(): void {
@@ -186,6 +188,10 @@ export class LayoutNumerosComponent implements OnInit {
     this.showConfere = false;
     this.nroSelecionado = nro;
     this.showResultadoConcurso = true;  
+  }
+
+  voltar(){
+    this.router.navigate(['/']);
   }
 }
 export class TipoConcurso{

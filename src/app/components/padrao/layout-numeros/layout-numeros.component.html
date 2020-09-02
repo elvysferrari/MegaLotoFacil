@@ -37,5 +37,5 @@
             </mat-select>
         </mat-form-field>
     </div>    
-    <app-layout-resultado [jogo]="padraoResult"></app-layout-resultado>
+    <app-layout-resultado (close)="voltar($event)" [jogo]="padraoResult"></app-layout-resultado>
 </div>

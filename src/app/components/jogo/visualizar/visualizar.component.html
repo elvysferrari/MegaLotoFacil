@@ -1,0 +1,24 @@
+<div>
+    <div style="padding-top: 25px;text-align: center;">
+        <button (click)="voltar()" style="height: 50px; width: 250px; background-color: #6ebb6e; color: white;"  mat-raised-button>Voltar</button>
+    </div>
+</div>
+<div style="padding-top: 25px;
+    text-align: center;
+    width: 80%;
+    padding-left: 10%;">
+    <mat-form-field appearance="fill">
+        <mat-label>Escolha o concurso para conferir</mat-label>
+        <mat-select>
+            <mat-option (click)="concursoSelecionado(c.value)" *ngFor="let c of nroConcursos" [value]="c.value">
+                {{ c.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div *ngIf="loading">
+        <p style="color: green">Conferindo...</p>
+    </div>
+    <div *ngIf="showResultadoConcurso">
+        <app-confere [nrosEscolhidos]="jogo" [nroConcurso]="nroSelecionado"></app-confere>
+    </div>    
+</div>    

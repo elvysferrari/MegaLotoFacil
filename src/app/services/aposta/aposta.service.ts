@@ -16,6 +16,12 @@ export class ApostaService {
     return this.firestore.collection('apostas').add(jogoJson);
   }
 
+  atualizarAposta(jogoId: string, jogo: JogoModel) {        
+    delete jogo.id;    
+    const jogoJson = JSON.parse(JSON.stringify(jogo));
+    return this.firestore.doc('apostas/' + jogoId).update(jogoJson) 
+  }
+
   getApostas(){
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return this.firestore.collection('apostas', ref => ref.where('user', '==', user.email)).snapshotChanges();
