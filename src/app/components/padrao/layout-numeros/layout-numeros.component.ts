@@ -39,92 +39,97 @@ export class LayoutNumerosComponent implements OnInit {
   ngOnInit(): void {
     let nro = "";
     
+    let b : Ball;
+    b = new Ball();
+    b.nro = 1;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 2;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 3;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 4;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 8;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 9;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 10;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 11;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 15;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 16;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 17;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 18;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 22;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 23;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 24;
+    b.selected = false;
+    this.balls.push({...b});
+
+    b = new Ball();
+    b.nro = 25;
+    b.selected = false;
+    this.balls.push({...b});    
+
+
+
     if(this.padraoSelecionado == 8){
       nro = "7";
-        let b : Ball;
-        b = new Ball();
-        b.nro = 1;
-        b.selected = false;
-        this.balls.push({...b});
 
-        b = new Ball();
-        b.nro = 2;
-        b.selected = false;
-        this.balls.push({...b});
-    
-        b = new Ball();
-        b.nro = 3;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 4;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 8;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 9;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 10;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 11;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 15;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 16;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 17;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 18;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 22;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 23;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 24;
-        b.selected = false;
-        this.balls.push({...b});
-
-        b = new Ball();
-        b.nro = 25;
-        b.selected = false;
-        this.balls.push({...b});
 
     }else if(this.padraoSelecionado == 7){
+      nro = "8";
+    }  
 
-    }      
     this.titulo = "Selecione abaixo " + nro + " números para incluir na sua aposta";
   }
 

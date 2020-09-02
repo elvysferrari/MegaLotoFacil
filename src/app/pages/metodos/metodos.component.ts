@@ -35,8 +35,9 @@ export class MetodosComponent implements OnInit {
   }
 
   padrao7(){
-    this.padrao8Result = this.gerarPadroesService.gerarPadrao7([1,2,3,4,8,9,10]);
-    console.log(this.padrao8Result);
+    this.padraoSelecionado = 7;
+    //this.padrao8Result = this.gerarPadroesService.gerarPadrao7([1,2,3,4,8,9,10]);
+    //console.log(this.padrao8Result);
   }
 
   padrao6(){
