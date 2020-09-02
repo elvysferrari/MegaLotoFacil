@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { NumeroModel } from 'src/app/models/numero-model';
 
 
 @Component({
@@ -28,6 +29,10 @@ export class LayoutResultadoComponent implements OnInit {
 
   voltar(){
     this.close.emit(true);
+  }
+
+  checkNumber(nro: NumeroModel){
+    nro.check = !nro.check;
   }
 
 }

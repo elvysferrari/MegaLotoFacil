@@ -11,7 +11,7 @@
 </div>
 <div>
     <div *ngFor="let numero of jogo.numeros; let i = index" class="balls" >
-        <div class="label-aposta">Aposta {{ i + 1 }}</div>
+        <div (click)="checkNumber(numero)" [ngStyle]="{'background-color': !numero.check ? '#4d477d' : 'green'}" class="label-aposta">Aposta {{ i + 1 }} - Marcar como jogada</div>        
         <div *ngFor="let n of numero.nros" class="circle">
             <span>{{ n }}</span>
         </div>

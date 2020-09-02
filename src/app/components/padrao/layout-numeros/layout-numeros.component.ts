@@ -134,11 +134,18 @@ export class LayoutNumerosComponent implements OnInit {
   }
 
   selected(ball: Ball){
+    let qtdDiminuir = 0
+    if(this.padraoSelecionado == 8) 
+      qtdDiminuir = 2
+
+    if(this.padraoSelecionado == 7) 
+      qtdDiminuir = 0     
+
     let qtdeSelecionadas = this.balls.filter(x => x.selected == true);  
-    if(qtdeSelecionadas.length <= (this.padraoSelecionado -2)){
+    if(qtdeSelecionadas.length <= (this.padraoSelecionado - qtdDiminuir)){
       this.balls.find(x => x.nro == ball.nro).selected = !ball.selected;
 
-      if(qtdeSelecionadas.length == (this.padraoSelecionado -2)){
+      if(qtdeSelecionadas.length == (this.padraoSelecionado - qtdDiminuir)){
         this.showProsseguir = true;
       }else{
         this.showProsseguir = false;
@@ -148,7 +155,7 @@ export class LayoutNumerosComponent implements OnInit {
         alert("Máximo de números marcados.");
       else{
         this.balls.find(x => x.nro == ball.nro).selected = !ball.selected;
-        if(qtdeSelecionadas.length == (this.padraoSelecionado -2)){
+        if(qtdeSelecionadas.length == (this.padraoSelecionado - qtdDiminuir)){
           this.showProsseguir = true;
         }else{
           this.showProsseguir = false;
@@ -158,11 +165,23 @@ export class LayoutNumerosComponent implements OnInit {
   }
 
   prosseguir(){
+    let nrosAposta = [];
+    this.balls.forEach((ball) => {
+      if(ball.selected){
+        nrosAposta.push(ball.nro);
+      }
+    });
     if(this.padraoSelecionado == 8){
-      this.padraoResult = this.gerarPadroesService.gerarPadrao8([1,2,3,4,8,9,10]);
+      this.padraoResult = this.gerarPadroesService.gerarPadrao8(nrosAposta);
       console.log(this.padraoResult);  
       this.showResult = true;
     }
+
+    if(this.padraoSelecionado == 7){
+      this.padraoResult = this.gerarPadroesService.gerarPadrao7(nrosAposta);
+      console.log(this.padraoResult);  
+      this.showResult = true;
+    }    
   }
 
   conferir(){   
