@@ -1,4 +1,4 @@
-import { JogoModel } from './../../models/jogo-model';
+import { JogoModel, UltimoSorteioModel } from './../../models/jogo-model';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -29,6 +29,19 @@ export class ApostaService {
 
   getIntervaloAposta(){
     return this.firestore.collection('configuracoes', ref => ref.where('configNro', '==', 1)).valueChanges();
+  }
+
+  getUltimas10Apostas(){
+    return this.firestore.collection('configuracoes', ref => ref.where('configNro', '==', 2)).valueChanges();
+  }
+
+  inserirResultado(ultimoSorteio: UltimoSorteioModel){
+    const ultimoSorteioJson = JSON.parse(JSON.stringify(ultimoSorteio));
+    return this.firestore.collection('ultimosSorteios').add(ultimoSorteioJson);
+  }
+
+  getUltimosSorteios(){
+    return this.firestore.collection('ultimosSorteios').valueChanges();
   }
 
 }

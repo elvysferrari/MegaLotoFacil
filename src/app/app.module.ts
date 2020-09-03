@@ -1,3 +1,4 @@
+import { SorteiosService } from './services/sorteio/sorteios.service';
 import { ResultadoService } from './services/resultado/resultado.service';
 import { MatTabsModule } from '@angular/material/tabs';
 import { GerarPadroesService } from './services/gerador/gerar-padroes.service';
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthService,
     GerarPadroesService,
     ApostaService,
-    ResultadoService
+    ResultadoService,
+    SorteiosService
   ],
   bootstrap: [AppComponent]
 })

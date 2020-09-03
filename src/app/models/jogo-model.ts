@@ -8,3 +8,9 @@ export class JogoModel {
     nrConferido: number;
     totalValorAcertado: number;
 }
+export class UltimoSorteioModel{
+    id: string;
+    nroConcurso: number;
+    dataSorteio: Date;
+    numeros: number[];
+}

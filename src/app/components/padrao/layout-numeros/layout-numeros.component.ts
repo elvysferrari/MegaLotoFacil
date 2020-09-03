@@ -192,8 +192,7 @@ export class LayoutNumerosComponent implements OnInit {
     this.apostaService.getIntervaloAposta().subscribe(async (data: any[]) => {          
       apostaInicial = data[0].apostaInicial;
       apostaFinal = data[0].apostaFinal;
-      console.log('apostaInicial', apostaInicial);
-      console.log('apostaFinal', apostaFinal);
+     
       let rangeNros = [];
       for (let i = apostaInicial; i <= apostaFinal; i++) {
         rangeNros.push({value: i, viewValue: i.toString()})
