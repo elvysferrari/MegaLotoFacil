@@ -7,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "lotofacilapp-8fc6e"
   }
 }
