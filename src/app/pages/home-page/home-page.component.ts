@@ -31,14 +31,25 @@ export class HomePageComponent implements OnInit {
             ...e.payload.doc.data() as NoticeModel
           };
         }) 
+
+        this.notices.sort((a: any, b: any) => {
+          return a.date > b.date ? -1 : 1;
+        });
       })
     }
   }
 
   newNotice(){
     var notice = new NoticeModel();
-    notice.body = "Resultado Lotofácil 2021 – 01, 02, 03, 04, 06, 07, 08, 10, 12, 15, 18, 19, 22, 23, 24. A Lotofácil também paga premiações em dinheiro para quem acerta 11, 12, 13 e 14.";
-    notice.title = "Sorteio da Lotofácil 2021: veja o resultado do concurso desta quarta (26)";
+    notice.body = "Resultado Lotofácil 2026 – 01-03-04-05-06-11-13-14-16-19-20-21-22-23-24";
+    notice.title = "Lotofácil 2026 acumula e vai a R$ 3,4 milhões no próximo sorteio; veja números...";
+    notice.image = "";
+    notice.date = new Date;
+    this.homePageService.saveNotice(notice);
+
+    var notice = new NoticeModel();
+    notice.body = "Resultado Lotofácil 2027 – 01-02-03-06-07-09-12-13-16-17-20-21-23-24-25";
+    notice.title = "Lotofácil 2027 paga R$ 1,6 milhão a duas apostas; veja os números sorteados...";
     notice.image = "";
     notice.date = new Date;
     this.homePageService.saveNotice(notice);

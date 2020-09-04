@@ -1,3 +1,4 @@
+<!-- <button style="height: 50px; width: 250px; background-color: #6ebb6e; color: white;" (click)="newNotice()" mat-raised-button>Nova noticia</button>-->
 <div *ngIf="isLogged" class="container">
     <mat-card *ngFor="let noticie of notices" class="example-card">
         <mat-card-header>
@@ -18,6 +19,31 @@
         </mat-card-content>        
       </mat-card>          
 </div>
-<div *ngIf="!isLogged" class="container">
-  <p>Compre Agora</p>
+<div style="font-size: 14px; color:indigo; text-align: center; padding-top: 20px;font-weight:600" *ngIf="!isLogged" class="container">
+  <p>Compre Agora o seu acesso por apenas R$ 10,00 (Mercado pago, transfêrencia, boleto, deposito)</p>
+  <p>Entre em contato pelo Whatsapp (46) 99902 3023 ou envie um email para elvys.ferrari@gmail.com</p>
+  
+  <a style="font-weight: 600;  color: #53bb53; padding-top: 18px; padding-bottom: 18px;  font-size: 21px;" href="https://api.whatsapp.com/send?phone=46999023023">CLIQUE AQUI WHATSAPP</a>
+  
+  <img mat-card-avatar style="height: 270px;
+         width: 335px;
+          flex-shrink: 0;
+          object-fit: contain;" src="/assets/imagens/Capturar.PNG" alt="">
+
+  <img mat-card-avatar style="height: 270px;
+    width: 335px;
+    flex-shrink: 0;
+    object-fit: contain;" src="/assets/imagens/Capturar2.PNG" alt="">
+
+  <img mat-card-avatar style=" height: 270px;
+   width: 335px;
+    flex-shrink: 0;
+    object-fit: contain;" src="/assets/imagens/Capturar3.PNG" alt="">
+
+  <img mat-card-avatar style="height: 500px;
+   width: 335px;
+    flex-shrink: 0;
+    object-fit: contain;" src="/assets/imagens/Capturar4.PNG" alt="">    
+
+  <a  style="font-weight: 600;  color: #53bb53; padding-top: 18px; padding-bottom: 18px;  font-size: 21px;"  href="https://api.whatsapp.com/send?phone=46999023023">CLIQUE AQUI WHATSAPP</a>
 </div>
